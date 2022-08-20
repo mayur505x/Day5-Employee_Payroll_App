@@ -25,7 +25,7 @@ public class EmployeePayrollServiceImpl implements EmployeePayrollService{
     @Override
     public Employee CreateEmployeeDetails(EmployeePayrollDto employeePayrollDto) {
         Employee employee = null;
-        employee = new Employee(employeeList.size() + 1, employeePayrollDto);
+        employee = new Employee(employeeList.size() + 1, employeePayrollDto );
         employeeList.add(employee);
         return employee;
     }
