@@ -29,6 +29,7 @@ public class EmployeePayrollAppController {
         return new ResponseEntity<ResponseDto>(responseDTO, HttpStatus.OK);
     }
 
+
     @GetMapping("/get/{empId}")
     public ResponseEntity<ResponseDto> getEmployeePayrollData(@PathVariable("empId") int empId){
         Employee employee = employeePayrollService.getEmployeeDetailsById(empId);
