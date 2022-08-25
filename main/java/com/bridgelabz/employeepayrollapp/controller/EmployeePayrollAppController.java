@@ -32,8 +32,17 @@ public class EmployeePayrollAppController {
 
     @GetMapping("/get/{empId}")
     public ResponseEntity<ResponseDto> getEmployeePayrollData(@PathVariable("empId") int empId){
-        Employee employee = employeePayrollService.getEmployeeDetailsById(empId);
+        Employee employee = null;
+        employee = employeePayrollService.getEmployeeDetailsById(empId);
         ResponseDto responseDTO = new ResponseDto("Get Call For Id Sucessful. ", employee);
+        return new ResponseEntity<ResponseDto>(responseDTO, HttpStatus.OK);
+    }
+
+    @GetMapping("/department/{department}")
+    public ResponseEntity<ResponseDto> getEmployeePayrollData(@PathVariable("department") String department){
+        List<Employee> employeeList = null;
+        employeeList = employeePayrollService.getEmployeeByDepartment(department);
+        ResponseDto responseDTO = new ResponseDto("Get Call For Id Sucessful. ", employeeList);
         return new ResponseEntity<ResponseDto>(responseDTO, HttpStatus.OK);
     }
 
